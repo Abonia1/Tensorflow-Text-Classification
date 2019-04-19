@@ -176,8 +176,8 @@ def get_data(data_directory, classes_only=False):
     classes = pd.read_csv(classes_filename, header=None, names=['class'])
     if classes_only:
         return classes
-    train_raw = pd.read_csv(train_filename, header=None)
-    test_raw = pd.read_csv(test_filename, header=None)
+    train_raw = pd.read_csv(train_filename, header=None,encoding='iso-8859-1')
+    test_raw = pd.read_csv(test_filename, header=None,encoding='iso-8859-1')
     longest_sent = max([len(sent) for sent in tf.contrib.learn.preprocessing.tokenizer(train_raw[2])])
     print("The longest sentence in the training data has {} words.".format(longest_sent))
 
